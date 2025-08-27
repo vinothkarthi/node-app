@@ -1,0 +1,68 @@
+[
+    {
+        "name": "Roronoa Zoro",
+        "email": "piratehunter@gmail.com",
+        "password": "swordmaster",
+        "confirmPassword": "swordmaster"
+    },
+    {
+        "name": "Monkey D. Luffy",
+        "email": "kingofpirates@gmail.com",
+        "password": "strawhatpirate",
+        "confirmPassword": "strawhatpirate"
+    },
+    {
+        "name": "Nami",
+        "email": "catburglar@gmail.com",
+        "password": "navigator",
+        "confirmPassword": "navigator"
+    },
+    {
+        "name": "Usopp",
+        "email": "sogeking@gmail.com",
+        "password": "sniperking",
+        "confirmPassword": "sniperking"
+    },
+    {
+        "name": "Sanji",
+        "email": "blackleg@gmail.com",
+        "password": "cook",
+        "confirmPassword": "cook"
+    },
+    {
+        "name": "Tony Tony Chopper",
+        "email": "cottoncandy@gmail.com",
+        "password": "doctor",
+        "confirmPassword": "doctor"
+    },
+    {
+        "name": "Nico Robin",
+        "email": "devilchild@gmail.com",
+        "password": "archaeologist",
+        "confirmPassword": "archaeologist"
+    },
+    {
+        "name": "Franky",
+        "email": "cool@gmail.com",
+        "password": "cyborg",
+        "confirmPassword": "cyborg"
+    },
+    {
+        "name": "Brook",
+        "email": "soulking@gmail.com",
+        "password": "skeleton",
+        "confirmPassword": "skeleton"
+    },
+    {
+        "name": "Jinbe",
+        "email": "knightofsea@gmail.com",
+        "password": "helmsman",
+        "confirmPassword": "helmsman"
+    },
+    {
+        "name": "Ace",
+        "email": "firefist.ace@gmail.com",
+        "password": "firefist",
+        "confirmPassword": "firefist"
+    }
+]
