@@ -5,7 +5,7 @@ const customErrorHandler = require('../utils/custom-error-handler');
 
 exports.highRatedMovies = (req, res,next) => {
     req.query.limit = 5;
-    req.query.sort = '-ratings';
+    req.query.sort = '-ratings'; // - indicates descending order
     next();
 }
 
@@ -161,7 +161,7 @@ exports.getMovieState = async (req,res) => {
                 minPrice: {$min: '$price'},
                 maxPrice: {$max: '$price'}
             }},
-            {$sort: {avgRatings: -1, avgPrice: -1}}
+            {$sort: {avgRatings: -1, avgPrice: -1}} // -1 indicates descending order
         ]);
         res.status(200).json({
             status: 'success',
@@ -182,14 +182,14 @@ exports.getMovieByGenre = async (req,res) => {
     try {
         const genre = req.params.genre;
         const movies = await Movie.aggregate([
-            {$unwind: '$genres'},
+            {$unwind: '$genres'}, // if a movie has multiple genres in an array, it will create a separate document for each genre
             {$group:{
                 _id: '$genres',
                 count: {$sum: 1},
                 movies: {$push: '$name'}
             }},
             {$addFields: {genre: '$_id'}},
-            {$project: {_id: 0}},
+            {$project: {_id: 0}}, // exclude the _id field from the result
             {$match: { genre: { $regex: new RegExp(`^${genre}$`, 'i') } }},
             {$sort: {count: -1}}
         ]);

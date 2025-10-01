@@ -11,7 +11,7 @@ const xssClean = require('xss-clean')
 const hpp = require('hpp')
 
 const app = express()
-app.use(helmet())
+app.use(helmet()) // set security HTTP headers like content-security-policy, X-Frame-Options, X-XSS-Protection etc.
 // why we need rate limiting in our app
 
 // Prevent brute-force attacks
@@ -30,8 +30,8 @@ const limiter = rateLimit({
 app.use('/api',limiter)
 //middleware
 app.use(express.json({limit: '10kb'})) // to prevent DoS attack use limit to mention the size of req.body
-app.use(sanitize()) // to prevent no-sql query injection attack in req.body
-app.use(xssClean()) // to prevent HTML script injection attack in req.body
+app.use(sanitize()) // to prevent no-sql query injection attack in req.body i.e removes $ and .
+app.use(xssClean()) // to prevent HTML script injection attack in req.body i.e removes <script>
 //parameter pollution - ?sort=price&sort=ratings => will get error
 app.use(hpp({whitelist: ['sort']})) // to prevent parameter polution
 // mount the movie router on the app

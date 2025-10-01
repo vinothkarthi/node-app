@@ -107,6 +107,7 @@ exports.protect = asyncErrorHandler(async (req, res, next) => {
     
     // 2.Verify the token
     const decoded = await util.promisify(jwt.verify)(token, process.env.JWT_SECRET);
+    //util.promisify(jwt.verify) = Converts a callback-style function ((err, result)) into a Promise-based function.
 
     // 3.Check if the user still exists
     const user = await User.findById(decoded.id);

@@ -5,7 +5,7 @@ const { checkId, checkReqBody, getAllMovies, getMovie, createMovie, updateMovie,
 const movieRouter = express.Router()
 movieRouter.param('id', checkId)
 movieRouter.route('/').get(getAllMovies).post(checkReqBody,createMovie)
-movieRouter.route('/:id/:name?').get(getMovie)
+movieRouter.route('/:id/:name?').get(getMovie) // name is optional parameter
 movieRouter.route('/:id').patch(updateMovie).delete(deleteMovie)
 // Export the movie router to be used in the main app
 module.exports = movieRouter

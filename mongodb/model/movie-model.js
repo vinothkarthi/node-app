@@ -101,6 +101,8 @@ movieSchema.pre(/^find/, function(next) {
 //aggregation middleware
 movieSchema.pre('aggregate',function(next) {
     this.pipeline().unshift({$match: {releaseDate: {$lte: new Date()}}}); // filter out movies released in the future
+    //.pipeline() gives you direct access to the array of aggregation stages you passed into aggregate()
+    //unshift() adds a new element to the beginning of the pipeline array.
     //why we use new Date() instead of Date.now()?
     //because Date.now() returns a timestamp, but we need a Date object for the $match stage
     this.startTime = Date.now();
